@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Browser Debugging 101: reveal.js</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -107,20 +107,18 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							**Server** : Logging trace statements to a file
+							**Server** : Error Logging
 
-							```php
-							$fruit = "banana";
-							$integer = 2;
-							$result = $fruit + $integer;
-							Log::debug("banana plus two equals: ".$result);
-							```
-							Most popular PHP frameworks implement a log class to simplify logging trace statements. The above example uses [FuelPHP](http://fuelphp.com/).
+							Server-side languages typically include a built-in class or series of methods to handle logging errors and debug statements.
 
-							The log file would be updated with the following:
+							PHP provides a [number of methods](http://www.w3schools.com/php/php_ref_error.asp) to handle error logging, the simplest of which is **error_log()**.
 
-							```
-							DEBUG - 2013-11-08 21:05:04 --> banana plus two equals: 2
+							Python has a built-in Logging module to report events of varying severity:
+							```python
+							import logging
+							logging.basicConfig(filename='whoops.log',level=logging.DEBUG)
+							logging.debug('Tracing stuff and things')
+							logging.error('DEFCON ONE')
 							```
 						</script>
 					</section>
@@ -138,7 +136,7 @@
 							}
 							else
 							{
-								document.write("Jeb is terrified and ready to flee!");
+								alert("Jeb isn't quite bright enough to know what's going on!");
 							}
 							```
 							This is old school, and there are much better options available to you.
@@ -386,6 +384,16 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
+						#### Advanced DevTools: Monitoring Resources, Network Profiling, Handling Memory
+
+						* The Network tab tracks all the resources the page requests. Use it to monitor bottlenecks - *is a script particularly slow to load?* - and asynchronous calls, including headers, responses, and response codes.
+						* The Timeline and Profiles tab can track memory and CPU usage. *How resource-heavy is my fancy javascript library?*
+
+						<img src="img/advanced_tour_1.png" alt="Memory and CPU Profiles" />
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
 						### Wrapping Up: Helpful Resources!
 
 						Browser Developer Tools:
@@ -401,14 +409,16 @@
 						* [Mobile Chrome](https://developers.google.com/chrome-developer-tools/docs/remote-debugging)
 
 						* [Mobile Safari](http://webdesign.tutsplus.com/tutorials/workflow-tutorials/quick-tip-using-web-inspector-to-debug-mobile-safari/)
+
+						Lastly, code school provides a [free online course](https://www.codeschool.com/courses/discover-devtools) about using Chrome DevTools.
 					</script>
 				</section>
 				<section data-markdown>
-						<script type="text/template">
-							## Questions? Comments?
-							Find this presentation online at [cpeterson.me/debugging](http://cpeterson.me/debugging)
-						</script>
-					</section>
+					<script type="text/template">
+						## Questions? Comments?
+						Find this presentation online at [cpeterson.me/debugging](http://cpeterson.me/debugging)
+					</script>
+				</section>
 			</div>
 
 		</div>
